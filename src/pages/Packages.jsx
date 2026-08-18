@@ -1,7 +1,9 @@
 import { useEffect } from 'react'
 import { packages } from '../data/packages'
+import { individualItemCategories } from '../data/individualItems'
 import PackageGrid from '../components/packages/PackageGrid'
 import PackageComparison from '../components/packages/PackageComparison'
+import IndividualItemsSection from '../components/packages/IndividualItemsSection'
 
 export default function Packages() {
   useEffect(() => {
@@ -26,6 +28,18 @@ export default function Packages() {
             <h2 className="text-3xl font-bold tracking-tight text-slate-900">Compare packages</h2>
           </div>
           <PackageComparison packages={packages} />
+        </div>
+
+        <div className="mt-20">
+          <div className="mb-8 text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-700">Buy Separately</p>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-900">Shop Individual Items</h2>
+            <p className="mt-4 text-lg text-slate-600">
+              Already have some of the setup? Buy just the devices you need.
+            </p>
+          </div>
+
+          <IndividualItemsSection categories={individualItemCategories} />
         </div>
       </div>
     </div>

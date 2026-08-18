@@ -22,6 +22,7 @@ const solutions = [
       'Reliable retail operations',
     ],
     accent: 'from-emerald-400 to-green-500',
+    path: '/packages/offline-pos',
   },
   {
     icon: Cloud,
@@ -36,6 +37,7 @@ const solutions = [
       'Cloud-based management',
     ],
     accent: 'from-green-400 to-teal-500',
+    path: '/packages/cloud-pos',
   },
   {
     icon: Code2,
@@ -50,6 +52,7 @@ const solutions = [
       'Scalable architecture',
     ],
     accent: 'from-teal-400 to-emerald-500',
+    path: '/packages/custom-pos',
   },
 ]
 
@@ -110,9 +113,10 @@ export default function SolutionsSection() {
             const Icon = solution.icon
 
             return (
-              <article
+              <Link
                 key={solution.number}
-                className="group relative overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.035] p-6 shadow-xl shadow-black/10 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-emerald-400/20 hover:bg-white/[0.055] sm:p-7"
+                to={solution.path}
+                className="group relative block overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.035] p-6 shadow-xl shadow-black/10 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-emerald-400/20 hover:bg-white/[0.055] sm:p-7"
               >
 
                 {/* Card glow */}
@@ -166,25 +170,23 @@ export default function SolutionsSection() {
 
                 </div>
 
-              {/*
-  Hover arrow
-  <div className="mt-7 flex items-center justify-between">
+                {/* Hover arrow */}
+                <div className="mt-7 flex items-center justify-between">
 
-    <span className="text-xs font-semibold text-emerald-400">
-      Learn More
-    </span>
+                  <span className="text-xs font-semibold text-emerald-400">
+                    Learn More
+                  </span>
 
-    <div className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] transition-all duration-300 group-hover:border-emerald-400/30 group-hover:bg-emerald-400/10">
-      <ArrowUpRight
-        size={16}
-        className="text-white transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-      />
-    </div>
+                  <div className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] transition-all duration-300 group-hover:border-emerald-400/30 group-hover:bg-emerald-400/10">
+                    <ArrowUpRight
+                      size={16}
+                      className="text-white transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    />
+                  </div>
 
-  </div>
-*/}
+                </div>
 
-              </article>
+              </Link>
             )
           })}
 

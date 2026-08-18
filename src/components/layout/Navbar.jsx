@@ -1,11 +1,10 @@
-import { useEffect, useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
-import { Menu, X, Moon, Sun, MessageCircle } from 'lucide-react'
-import { useTheme } from '../../context/ThemeContext'
+import { useEffect, useRef, useState } from 'react'
+import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Menu, X, MessageCircle } from 'lucide-react'
 
 const navItems = [
   { label: 'Home', to: '/' },
-  { label: 'POS Packages', to: '/packages' },
+  { label: 'POS Devices', to: '/packages' },
   { label: 'About', to: '/about' },
   { label: 'Contact', to: '/contact' },
 ]
@@ -13,13 +12,41 @@ const navItems = [
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const { theme, toggleTheme } = useTheme()
+  const location = useLocation()
+
+  // Sliding pill indicator — tracks the active link's position/width
+  const navRef = useRef(null)
+  const linkRefs = useRef({})
+  const [pillStyle, setPillStyle] = useState({ left: 0, width: 0, opacity: 0 })
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  const measurePill = () => {
+    const activeItem = navItems.find((item) => item.to === location.pathname)
+    const el = activeItem ? linkRefs.current[activeItem.to] : null
+    if (el && navRef.current) {
+      const navBox = navRef.current.getBoundingClientRect()
+      const linkBox = el.getBoundingClientRect()
+      setPillStyle({
+        left: linkBox.left - navBox.left,
+        width: linkBox.width,
+        opacity: 1,
+      })
+    } else {
+      setPillStyle((prev) => ({ ...prev, opacity: 0 }))
+    }
+  }
+
+  useEffect(() => {
+    measurePill()
+    window.addEventListener('resize', measurePill)
+    return () => window.removeEventListener('resize', measurePill)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location.pathname])
 
   const closeMobileMenu = () => setMobileMenuOpen(false)
 
@@ -33,8 +60,8 @@ export default function Navbar() {
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link 
-          to="/" 
+        <Link
+          to="/"
           className="flex items-center gap-2.5 group"
           onClick={closeMobileMenu}
         >
@@ -47,18 +74,30 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden items-center gap-8 md:flex">
+        <div ref={navRef} className="relative hidden items-center gap-1 md:flex">
+          {/* Sliding active pill */}
+          <span
+            className="absolute top-1/2 h-9 -translate-y-1/2 rounded-lg bg-gradient-to-r from-[var(--green-primary)] to-[var(--green-emerald)] shadow-[0_2px_16px_-2px_var(--green-primary)] transition-all duration-300 ease-out"
+            style={{
+              left: `${pillStyle.left}px`,
+              width: `${pillStyle.width}px`,
+              opacity: pillStyle.opacity,
+            }}
+          />
+
           {navItems.map((item) => (
             <NavLink
               key={item.label}
+              ref={(el) => { linkRefs.current[item.to] = el }}
               to={item.to}
               className={({ isActive }) =>
-                `text-sm font-medium transition-colors duration-200 ${
-                  isActive 
-                    ? 'text-[var(--green-primary)]' 
+                `relative z-10 px-4 py-1.5 text-sm font-semibold transition-colors duration-200 ${
+                  isActive
+                    ? 'text-[var(--bg-primary)]'
                     : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
                 }`
               }
+              onClick={() => setTimeout(measurePill, 0)}
             >
               {item.label}
             </NavLink>
@@ -67,20 +106,6 @@ export default function Navbar() {
 
         {/* Right Side Actions */}
         <div className="flex items-center gap-3">
-          {/*{/* Theme Toggle 
-          <button
-            onClick={toggleTheme}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--glass-bg)] border border-[var(--glass-border)] text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-all duration-200 hover:border-[var(--green-primary)]/50"
-            aria-label="Toggle theme"
-            title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-          >
-            {theme === 'dark' ? (
-              <Sun size={18} />
-            ) : (
-              <Moon size={18} />
-            )}
-          </button>*/}
-
           {/* WhatsApp CTA */}
           <a
             href="https://wa.me/94787777810"
@@ -113,9 +138,9 @@ export default function Navbar() {
                 key={item.label}
                 to={item.to}
                 className={({ isActive }) =>
-                  `rounded-lg px-4 py-3 text-sm font-medium transition-all duration-200 ${
-                    isActive 
-                      ? 'bg-[var(--green-primary)]/10 text-[var(--green-primary)] border border-[var(--green-primary)]/30' 
+                  `rounded-lg px-4 py-3 text-sm font-semibold transition-all duration-200 ${
+                    isActive
+                      ? 'bg-gradient-to-r from-[var(--green-primary)] to-[var(--green-emerald)] text-[var(--bg-primary)] shadow-[0_2px_16px_-2px_var(--green-primary)]'
                       : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--glass-bg)]'
                   }`
                 }

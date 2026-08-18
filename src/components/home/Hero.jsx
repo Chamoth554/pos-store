@@ -59,7 +59,7 @@ export default function Hero() {
 
       {/* ================= CONTENT ================= */}
 
-      <div className="relative mx-auto max-w-7xl px-4 pb-20 pt-16 sm:px-6 sm:pb-24 sm:pt-20 lg:px-8 lg:pb-32 lg:pt-28">
+      <div className="relative mx-auto max-w-7xl px-4 pb-20 pt-8 sm:px-6 sm:pb-24 sm:pt-12 lg:px-8 lg:pb-32 lg:pt-16">
 
         <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
 
@@ -257,7 +257,7 @@ export default function Hero() {
 
             {/* ================= BOTTOM STATS ================= */}
 
-            <div className="absolute -bottom-5 left-1/2 grid w-[92%] -translate-x-1/2 grid-cols-3 overflow-hidden rounded-2xl border border-white/10 bg-black/55 shadow-2xl backdrop-blur-2xl">
+            <div className="absolute -bottom-16 left-1/2 grid w-[92%] -translate-x-1/2 grid-cols-3 overflow-hidden rounded-2xl border border-white/10 bg-black/55 shadow-2xl backdrop-blur-2xl">
 
               <div className="flex flex-col items-center justify-center border-r border-white/10 px-3 py-3">
                 <Printer

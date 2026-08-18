@@ -8,6 +8,10 @@ import Packages from './pages/Packages'
 import About from './pages/About'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
+import OfflinePOS from './pages/solutions/OfflinePOS'
+import CloudPOS from './pages/solutions/CloudPOS'
+import CustomPOS from './pages/solutions/CustomPOS'
+import FloatingWhatsApp from './components/common/FloatingWhatsApp'
 
 export default function App() {
   return (
@@ -20,12 +24,16 @@ export default function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/packages" element={<Packages />} />
+              <Route path="/packages/offline-pos" element={<OfflinePOS />} />
+              <Route path="/packages/cloud-pos" element={<CloudPOS />} />
+              <Route path="/packages/custom-pos" element={<CustomPOS />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </main>
           <Footer />
+          <FloatingWhatsApp />
         </div>
       </BrowserRouter>
     </ThemeProvider>
