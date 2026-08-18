@@ -27,14 +27,14 @@ export default function FeaturedPackages() {
                 </span>
                 <span className="text-xs font-medium text-emerald-700">{pkg.availability}</span>
               </div>
-               {/* Package Image */}
-      <div className="mb-6 flex h-52 items-center justify-center overflow-hidden rounded-2xl bg-white">
-        <img
-          src={pkg.image}
-          alt={pkg.name}
-          className="h-full w-full object-contain"
-        />
-      </div>
+              {/* Package Image */}
+              <div className="mb-6 flex h-52 items-center justify-center overflow-hidden rounded-2xl bg-white">
+                <img
+                  src={pkg.image}
+                  alt={pkg.name}
+                  className="h-full w-full object-contain"
+                />
+              </div>
 
               <h3 className="text-2xl font-bold text-slate-900">{pkg.name}</h3>
               <p className="mt-3 text-sm leading-6 text-slate-600">{pkg.shortDescription}</p>
@@ -54,20 +54,24 @@ export default function FeaturedPackages() {
               </div>
 
               <div className="mt-6 flex gap-3">
-                <Link to={`/packages`} className="flex-1">
-                  <Button variant="secondary" className="w-full">View Details</Button>
+                <Link
+                  to="/packages"
+                  className="flex-1 inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold !text-slate-900 transition-all duration-200 hover:bg-slate-50"
+                >
+                  View Details
                 </Link>
-                
+
               </div>
             </div>
           ))}
         </div>
 
         <div className="mt-10 text-center">
-          <Link to="/packages">
-            <Button variant="secondary" className="inline-flex items-center gap-2">
-              Explore All POS Packages <ArrowRight size={16} />
-            </Button>
+          <Link
+            to="/packages"
+            className="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold !text-slate-900 transition-all duration-200 hover:bg-slate-50"
+          >
+            Explore All POS Packages <ArrowRight size={16} />
           </Link>
         </div>
       </div>
