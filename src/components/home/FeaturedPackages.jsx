@@ -53,15 +53,7 @@ export default function FeaturedPackages() {
                 <p className="mt-1 text-3xl font-black text-slate-900">{formatCurrency(pkg.price)}</p>
               </div>
 
-              <div className="mt-6 flex gap-3">
-                <Link
-                  to="/packages"
-                  className="flex-1 inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold !text-slate-900 transition-all duration-200 hover:bg-slate-50"
-                >
-                  View Details
-                </Link>
-
-              </div>
+            
             </div>
           ))}
         </div>
