@@ -249,7 +249,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     placeholder="Enter your name"
-                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-emerald-500 focus:bg-white focus:ring-2 focus:ring-emerald-500/10"
+                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm !text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-emerald-500 focus:bg-white focus:ring-2 focus:ring-emerald-500/10"
                   />
                 </div>
 
@@ -270,7 +270,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     placeholder="you@example.com"
-                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-emerald-500 focus:bg-white focus:ring-2 focus:ring-emerald-500/10"
+                    className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm !text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-emerald-500 focus:bg-white focus:ring-2 focus:ring-emerald-500/10"
                   />
                 </div>
 
@@ -292,7 +292,7 @@ export default function Contact() {
                   value={form.phone}
                   onChange={handleChange}
                   placeholder="+94 78 777 7810"
-                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-emerald-500 focus:bg-white focus:ring-2 focus:ring-emerald-500/10"
+                  className="w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm !text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-emerald-500 focus:bg-white focus:ring-2 focus:ring-emerald-500/10"
                 />
               </div>
 
@@ -313,7 +313,7 @@ export default function Contact() {
                   required
                   rows={6}
                   placeholder="How can we help you?"
-                  className="w-full resize-none rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-emerald-500 focus:bg-white focus:ring-2 focus:ring-emerald-500/10"
+                  className="w-full resize-none rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm !text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-emerald-500 focus:bg-white focus:ring-2 focus:ring-emerald-500/10"
                 />
               </div>
 
