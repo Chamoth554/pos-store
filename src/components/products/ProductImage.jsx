@@ -1,0 +1,13 @@
+export default function ProductImage({ src, alt, className = '' }) {
+  return (
+    <img
+      src={src || 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80'}
+      alt={alt}
+      className={className}
+      loading="lazy"
+      onError={(event) => {
+        event.currentTarget.src = 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80'
+      }}
+    />
+  )
+}

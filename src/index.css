@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+/* Dark Mode (Default) */
+:root {
+  --bg-primary: #030605;
+  --bg-secondary: #050807;
+  --bg-tertiary: #07100B;
+  
+  --surface-light: rgba(255, 255, 255, 0.04);
+  --surface-lighter: rgba(255, 255, 255, 0.055);
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.10);
+  
+  --green-primary: #22C55E;
+  --green-bright: #39FF88;
+  --green-deep: #064E3B;
+  --green-emerald: #10B981;
+  
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  
+  --border-color: rgba(255, 255, 255, 0.08);
+  
+  --gradient-primary: linear-gradient(135deg, #22C55E, #10B981, #064E3B);
+  --gradient-dark-green: linear-gradient(135deg, #07100B, #0B2A1A, #022C22);
+  --glow-green: radial-gradient(circle, rgba(34, 197, 94, 0.18), transparent 65%);
+  --glow-hero: radial-gradient(circle at 70% 30%, rgba(34, 197, 94, 0.20), transparent 45%);
+}
+
+/* Light Mode */
+@media (prefers-color-scheme: light) {
+  :root:not(.dark) {
+    --bg-primary: #F5F7F6;
+    --bg-secondary: #FFFFFF;
+    --bg-tertiary: #F8FAFC;
+    
+    --surface-light: rgba(15, 23, 42, 0.04);
+    --surface-lighter: rgba(15, 23, 42, 0.055);
+    --glass-bg: rgba(255, 255, 255, 0.75);
+    --glass-border: rgba(15, 23, 42, 0.08);
+    
+    --green-primary: #22C55E;
+    --green-bright: #16A34A;
+    --green-deep: #064E3B;
+    --green-emerald: #10B981;
+    
+    --text-primary: #07110B;
+    --text-secondary: #475569;
+    --text-muted: #64748B;
+    
+    --border-color: rgba(15, 23, 42, 0.08);
+    
+    --gradient-primary: linear-gradient(135deg, #22C55E, #10B981, #064E3B);
+    --gradient-dark-green: linear-gradient(135deg, #F0F4F1, #E8EBE8, #DFE4E0);
+    --glow-green: radial-gradient(circle, rgba(34, 197, 94, 0.12), transparent 65%);
+    --glow-hero: radial-gradient(circle at 70% 30%, rgba(34, 197, 94, 0.15), transparent 45%);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+html:not(.dark) {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+::selection {
+  background: rgba(34, 197, 94, 0.2);
+  color: var(--text-primary);
+}
+
+/* Glass morphism utility */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+}
+
+.glass-sm {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+}
+
+/* Smooth transitions for theme changes */
+body,
+.glass,
+.glass-sm {
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
