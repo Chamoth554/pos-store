@@ -18,7 +18,7 @@ export default function SoftwareSection() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:px-8">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">Software</p>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Powerful Offline POS Software</h2>
+          <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">Powerful LIXTEQ POS Software</h2>
           <p className="mt-5 max-w-xl text-lg leading-8 text-slate-300">
             Manage sales, products, inventory, billing and reports even when your internet connection is unavailable.
           </p>
