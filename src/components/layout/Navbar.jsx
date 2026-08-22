@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { Menu, X, MessageCircle } from 'lucide-react'
-import logo from '../../assets/lixteq-pos-logo.png'
+import logo from '../../assets/lixteq-pos-logo1.png'
 
 const navItems = [
   { label: 'Home', to: '/' },
@@ -76,7 +76,7 @@ export default function Navbar() {
       transition-all
       duration-300
       group-hover:scale-[1.03]
-      sm:h-12
+      sm:h-10
     "
   />
 </Link>
