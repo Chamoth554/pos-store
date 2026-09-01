@@ -13,6 +13,7 @@ import CloudPOS from './pages/solutions/CloudPOS'
 import CustomPOS from './pages/solutions/CustomPOS'
 import FloatingWhatsApp from './components/common/FloatingWhatsApp'
 
+
 export default function App() {
   return (
     <ThemeProvider>

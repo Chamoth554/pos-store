@@ -94,6 +94,34 @@ export default function CloudPOS() {
           </div>
         </div>
 
+        {/* Demo Section */}
+        <div className="mt-14 rounded-[1.75rem] border border-white/10 bg-white/[0.025] p-6 backdrop-blur-xl sm:p-8 overflow-hidden">
+          <div className="grid gap-8 lg:grid-cols-2 lg:gap-12">
+            <div className="flex flex-col justify-center">
+              <h2 className="text-lg font-bold text-[var(--text-primary)]">Try Our Demo</h2>
+              <p className="mt-4 text-sm leading-6 text-[var(--text-secondary)]">
+                Experience the power of our Cloud-Based POS system firsthand. Explore all features with full access to our demo environment.
+              </p>
+              <a
+                href="https://demo.pos.lixteq.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex w-fit items-center gap-2 rounded-xl bg-gradient-to-r from-emerald-400 to-green-500 px-6 py-3 text-xs font-bold text-black shadow-lg shadow-emerald-500/10 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-emerald-500/20"
+              >
+                Try Demo Now
+                <ArrowUpRight size={15} />
+              </a>
+            </div>
+            <div className="flex items-center justify-center">
+              <img
+                src="/images/pos/online-pos.png"
+                alt="Cloud POS System Demo"
+                className="w-full rounded-lg shadow-lg"
+              />
+            </div>
+          </div>
+        </div>
+
         {/* CTA */}
         <div className="mt-10 flex flex-col items-center justify-between gap-5 rounded-2xl border border-white/[0.07] bg-white/[0.025] px-6 py-5 backdrop-blur-xl sm:flex-row sm:px-7">
           <div>
